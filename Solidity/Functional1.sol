@@ -1,6 +1,7 @@
  // SPDX-License-Identifier: GPL-3.0
 pragma solidity >=0.8.2 <0.9.0;
 
+// A smart contract that initializes the deployer with 1000 tokens and allows transferring tokens between addresses.
 contract SimpleToken {
     mapping(address => uint256) public balanceOf;
     
