@@ -1,4 +1,4 @@
-Solidity: Functional1.sol is for 2. SOLIDITY VS MOVE - FUNCTIONALITY (State management and Resource management).
+Solidity: Functional1.sol is for 2. SOLIDITY VS MOVE - FUNCTIONALITY (State management and Asset management).
 acv.sol and acv_vul.sol are for 3. SOLIDITY VS MOVE - SECURITY (B. Access Control Vulnerabilities). 
 loomsum1.sol is for sub section C. Formal Verification.
 
