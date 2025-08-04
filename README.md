@@ -6,3 +6,4 @@ Sui Move: Move.toml is config file, how to configure to run move files
 simple_token.move is for 2. SOLIDITY VS MOVE - FUNCTIONALITY (State management and Asset management).
 safe_transfer.move is for 3. SOLIDITY VS MOVE - SECURITY (A. Reentrancy Attacks). 
 testverification.move is for sub section C. Formal Verification
+sobject_test.move is to show an example of vulnerable shared object
