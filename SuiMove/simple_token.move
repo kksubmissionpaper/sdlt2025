@@ -47,7 +47,7 @@ module simple_token::simple_token {
     }
 
     /// Transfer tokens 
-    public entry fun transfer_tokens(
+    public fun transfer_tokens(
         mut coin: Coin<SIMPLE_TOKEN>,
         recipient: address,
         amount: u64,
@@ -76,7 +76,7 @@ module simple_token::simple_token {
     }
 
     /// Mint additional tokens (only treasury cap holder can call)
-    public entry fun mint(
+    public fun mint(
         treasury_cap: &mut coin::TreasuryCap<SIMPLE_TOKEN>,
         amount: u64,
         recipient: address,
@@ -87,7 +87,7 @@ module simple_token::simple_token {
     }
 
     /// Burn tokens
-    public entry fun burn(
+    public fun burn(
         treasury_cap: &mut coin::TreasuryCap<SIMPLE_TOKEN>,
         coin: Coin<SIMPLE_TOKEN>
     ) {
