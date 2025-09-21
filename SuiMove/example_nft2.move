@@ -9,7 +9,7 @@ module example_nft2::nft {
     use std::string;
     use sui::event;
     
-    // Declare NFT
+    /// Declare NFT
     public struct ExampleNFT has key, store {
         id: UID,
         // NFT name
@@ -20,13 +20,13 @@ module example_nft2::nft {
         url: Url,
     }
     
-    // Capability - Admin
+    /// Capability - Admin
     public struct AdminCap has key, store {
         id: UID
     }
     
     // Events
-    // when a NFT mints
+    /// when a NFT mints
     public struct NFTMinted has copy, drop {
         // object ID
         object_id: ID,
@@ -36,7 +36,7 @@ module example_nft2::nft {
         owner: address,
     }
     
-    // Func to initialize module
+    /// Func to initialize module
     fun init(ctx: &mut TxContext) {
         // Create AdminCap, sent to a user who deployed the NTF
         let admin_cap = AdminCap {
@@ -45,7 +45,7 @@ module example_nft2::nft {
         transfer::transfer(admin_cap, tx_context::sender(ctx));
     }
     
-    // Func to mint NFT（AdminCap only）
+    /// Func to mint NFT（AdminCap only）
     public fun mint(
         _: &AdminCap,
         name: vector<u8>,
@@ -72,7 +72,7 @@ module example_nft2::nft {
         transfer::transfer(nft, recipient);
     }
     
-    // Func to transfer NFT（by an owner）
+    /// Func to transfer NFT（by an owner）
     #[allow(lint(custom_state_change))]
     public fun transfer_nft(
         nft: ExampleNFT,
@@ -82,7 +82,7 @@ module example_nft2::nft {
         transfer::transfer(nft, recipient);
     }
     
-    // getter functions
+    /// getter functions
     public fun name(nft: &ExampleNFT): &string::String {
         &nft.name
     }
