@@ -1,5 +1,5 @@
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.19;
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity >=0.8.2 <0.9.0;
 
 contract MultiSigWallet {
     // event definition
@@ -83,4 +83,5 @@ contract MultiSigWallet {
         isConfirmed[_txIndex][msg.sender] = false;
         emit RevokeConfirmation(msg.sender, _txIndex);
     }
+
 }
