@@ -22,7 +22,7 @@ module multisig::multisig_wallet {
     const EInsufficientConfirmations: u64 = 6;
     const EInsufficientBalance: u64 = 7;
 
-    // event definition
+    /// event definition
     public struct TransactionSubmitted has copy, drop {
         wallet_id: address,
         tx_id: u64,
@@ -49,7 +49,7 @@ module multisig::multisig_wallet {
         revoker: address,
     }
 
-    // transaction
+    /// transaction
     public struct Transaction has store {
         id: u64,
         to: address,
@@ -59,7 +59,7 @@ module multisig::multisig_wallet {
         confirmation_count: u64,
     }
 
-    // multi sig wallet
+    /// multi sig wallet
     public struct MultiSigWallet has key {
         id: UID,
         owners: vector<address>,
@@ -69,7 +69,7 @@ module multisig::multisig_wallet {
         balance: Coin<SUI>,
     }
 
-    // create a wallet
+    /// create a wallet
     public fun create_wallet(
         owners: vector<address>,
         threshold: u64,
@@ -88,12 +88,12 @@ module multisig::multisig_wallet {
         }
     }
 
-    // wallet is as shared object
+    /// wallet is as shared object
     public fun share_wallet(wallet: MultiSigWallet) {
         transfer::share_object(wallet);
     }
 
-    // deposit
+    /// deposit
     public fun deposit(
         wallet: &mut MultiSigWallet,
         payment: Coin<SUI>
@@ -106,7 +106,7 @@ module multisig::multisig_wallet {
         vector::contains(&wallet.owners, &addr)
     }
 
-    // submit transaction
+    /// submit transaction
     public fun submit_transaction(
         wallet: &mut MultiSigWallet,
         to: address,
@@ -142,7 +142,7 @@ module multisig::multisig_wallet {
         tx_id
     }
 
-    // confirm transaction
+    /// confirm transaction
     public fun confirm_transaction(
         wallet: &mut MultiSigWallet,
         tx_id: u64,
@@ -167,7 +167,7 @@ module multisig::multisig_wallet {
         });
     }
 
-    // execute transaction
+    /// execute transaction
     public fun execute_transaction(
         wallet: &mut MultiSigWallet,
         tx_id: u64,
@@ -196,7 +196,7 @@ module multisig::multisig_wallet {
         payment
     }
 
-    // revoke confirmation
+    /// revoke confirmation
     public fun revoke_confirmation(
         wallet: &mut MultiSigWallet,
         tx_id: u64,
@@ -223,7 +223,7 @@ module multisig::multisig_wallet {
         });
     }
 
-    // getter functions
+    /// getter functions
     public fun get_owners(wallet: &MultiSigWallet): &vector<address> {
         &wallet.owners
     }
@@ -249,7 +249,7 @@ module multisig::multisig_wallet {
         (transaction.to, transaction.amount, transaction.executed, transaction.confirmation_count)
     }
 
-    // checking if transaction is confirmed
+    /// checking if transaction is confirmed
     public fun is_transaction_confirmed_by(
         wallet: &MultiSigWallet,
         tx_id: u64,
