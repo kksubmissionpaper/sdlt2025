@@ -33,8 +33,9 @@ contract ExampleNFT is ERC721, Ownable {
         emit NFTMinted(tokenId, msg.sender, recipient);
     }
     
-    // ERC721標準のtokenURIをオーバーライド
+    // Override the tokenURI of the ERC721 
     function tokenURI(uint256 tokenId) public view override returns (string memory) {
         return _nftData[tokenId].url;
     }
+
 }
