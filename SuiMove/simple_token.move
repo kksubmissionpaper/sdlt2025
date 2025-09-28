@@ -47,6 +47,7 @@ module simple_token::simple_token {
     }
 
     /// Transfer tokens 
+    #[allow(lint(self_transfer))]
     public fun transfer_tokens(
         mut coin: Coin<SIMPLE_TOKEN>,
         recipient: address,
